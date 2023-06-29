@@ -23,17 +23,22 @@ koverReport {
             classes("org.example.*")
         }
     }
+    // uncomment to fall back to XML reports. Not supported by Qodana IDE plugin
+    /*
     defaults {
         xml {
             onCheck = false
             setReportFile(layout.projectDirectory.file(".qodana/coverage-data/result.xml").asFile)
         }
     }
+    */
 }
 
 tasks.test {
     useJUnitPlatform()
-    finalizedBy(tasks.koverXmlReport)
+    // uncomment to fall back to XML reports. Also need to comment finalizedBy(tasks.koverVerify) out.
+    // finalizedBy(tasks.koverXmlReport)
+    finalizedBy(tasks.koverVerify) // you will find the report in build/kover/bin-reports
 }
 
 tasks.withType<KotlinCompile> {
