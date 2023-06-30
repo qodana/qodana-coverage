@@ -39,7 +39,7 @@ jobs:
         username: Dmitry.Golovinov
         password: ${{ secrets.SPACE_PASSWORD }}
         
-    - name: 'Qodana Scan'
+    - name: Qodana Scan
       uses: JetBrains/qodana-action@v2023.1.5
       env:
         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
