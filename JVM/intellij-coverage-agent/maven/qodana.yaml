@@ -1,0 +1,1 @@
+bootstrap: ls -la /data/project; ls -la /data/project/.qodana
