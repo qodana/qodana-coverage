@@ -1,0 +1,3 @@
+bootstrap: ls /data && ls /data/coverage
+profile:
+  name: qodana.recommended
