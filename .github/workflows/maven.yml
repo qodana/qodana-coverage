@@ -39,6 +39,7 @@ jobs:
         username: ${{ secrets.SPACE_REGISTRY_USERNAME }}
         password: ${{ secrets.SPACE_REGISTRY_PASSWORD }}
         
+        
     - name: Qodana Scan
       uses: JetBrains/qodana-action@v2023.1.5
       env:
