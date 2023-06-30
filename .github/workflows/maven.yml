@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - name: Checkout Code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
@@ -48,3 +48,4 @@ jobs:
         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_MVN }}
       with:
         args: "-i,JVM/intellij-coverage-agent/maven,-v,${{ github.workspace }}/JVM/intellij-coverage-agent/maven/.qodana/coverage-data:/data/coverage,--linter,registry.jetbrains.team/p/sa/containers/qodana-jvm:2023.2-nightly,--profile-name,qodana.recommended"
+        pr-mode: false
