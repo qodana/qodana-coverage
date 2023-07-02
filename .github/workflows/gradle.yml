@@ -46,9 +46,15 @@ jobs:
         
         
     - name: Qodana Scan
-      uses: JetBrains/qodana-action@v2023.1.5
+      uses: JetBrains/qodana-action@main
       env:
         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_GRADLE }}
       with:
-        args: "--log-level,debug,-i,JVM/intellij-coverage-agent/gradle,-v,${{ github.workspace }}/JVM/intellij-coverage-agent/gradle/.qodana/code-coverage:/data/coverage,--linter,registry.jetbrains.team/p/sa/containers/qodana-jvm:2023.2-nightly"
+        args: "--log-level,debug,-i,JVM/intellij-coverage-agent/gradle,--linter,registry.jetbrains.team/p/sa/containers/qodana-jvm:2023.2-nightly"
         pr-mode: false
+    
+    - name: 'Upload artifacts'
+      uses: actions/upload-artifact@v3
+      with:
+        name: results
+        path: ${{ runner.temp }}/qodana/results/
