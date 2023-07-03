@@ -50,7 +50,7 @@ jobs:
       env:
         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_GRADLE }}
       with:
-        args: "--log-level,debug,-i,JVM/intellij-coverage-agent/gradle,--linter,registry.jetbrains.team/p/sa/containers/qodana-jvm:233.801.850"
+        args: "--log-level,debug,-i,JVM/intellij-coverage-agent/gradle,--linter,registry.jetbrains.team/p/sa/containers/qodana-jvm:233.834.851"
         pr-mode: false
     
     - name: 'Upload artifacts'
