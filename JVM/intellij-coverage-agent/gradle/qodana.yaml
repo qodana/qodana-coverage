@@ -1,3 +1,2 @@
-bootstrap: ls -la /data/project/.qodana/code-coverage
 profile:
   name: qodana.recommended
