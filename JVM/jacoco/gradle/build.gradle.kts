@@ -30,7 +30,7 @@ koverReport {
     defaults {
         xml {
             onCheck = false
-            setReportFile(layout.projectDirectory.file(".qodana/coverage-data/result.xml").asFile)
+            setReportFile(layout.projectDirectory.file(".qodana/code-coverage/result.xml").asFile)
         }
     }
 }
