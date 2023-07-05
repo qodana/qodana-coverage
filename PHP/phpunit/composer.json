@@ -1,5 +1,5 @@
 {
-    "name": "phpunit_test",
+    "name": "hybloid/qodana",
     "description": "This is a sample project using Qodana.",
     "require-dev": {
         "phpunit/phpunit": "^9"
