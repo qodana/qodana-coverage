@@ -4,7 +4,6 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     
     strategy:
@@ -41,8 +40,7 @@ jobs:
       with:
         registry: registry.jetbrains.team
         username: ${{ secrets.SPACE_REGISTRY_USERNAME }}
-        password: ${{ secrets.SPACE_REGISTRY_PASSWORD }}
-        
+        password: ${{ secrets.SPACE_REGISTRY_PASSWORD }}     
         
     - name: Qodana Scan
       uses: JetBrains/qodana-action@v2023.1.5
