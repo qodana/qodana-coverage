@@ -59,7 +59,7 @@
                             <goal>report</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.basedir}/.qodana/coverage-data/</outputDirectory>
+                            <outputDirectory>${project.basedir}/.qodana/code-coverage/</outputDirectory>
                             <formats>XML</formats>
                             <includes>
                                 <include>org/example/**</include>
