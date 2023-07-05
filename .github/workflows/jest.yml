@@ -1,0 +1,53 @@
+name: JavaScript - Jest Test
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      run: npm ci
+      working-directory: JS/jest
+
+    - name: Run tests
+      run: npm test
+      working-directory: JS/jest
+      
+    - name: Archive coverage data
+      uses: actions/upload-artifact@v2
+      with:
+        name: jest-coverage-data
+        path: JS/jest/.qodana/code-coverage
+
+    - name: Login to Jetbrains Space
+      uses: docker/login-action@v2
+      with:
+        registry: registry.jetbrains.team
+        username: ${{ secrets.SPACE_REGISTRY_USERNAME }}
+        password: ${{ secrets.SPACE_REGISTRY_PASSWORD }}
+        
+        
+    - name: Qodana Scan
+      uses: JetBrains/qodana-action@v2023.1.5
+      env:
+        QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_JEST }}
+      with:
+        args: "-i,JS/jest,--linter,registry.jetbrains.team/p/sa/containers/qodana-js:2023.2-nightly"
+        pr-mode: false
