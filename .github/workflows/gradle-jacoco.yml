@@ -32,7 +32,7 @@ jobs:
     - name: Archive coverage data
       uses: actions/upload-artifact@v2
       with:
-        name: gradle-coverage-data.zip
+        name: gradle-coverage-data-jacoco
         path: JVM/jacoco/gradle/.qodana/code-coverage
 
     - name: Login to Jetbrains Space
