@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.jupiter.version>5.7.2</junit.jupiter.version>
         <intellij.coverage.agent.version>1.0.725</intellij.coverage.agent.version>
-        <intellij.agent.options>${project.basedir}/.qodana/coverage-data/output.ic,true,true,true,false</intellij.agent.options>
+        <intellij.agent.options>${project.basedir}/.qodana/code-coverage/output.ic,true,true,true,false</intellij.agent.options>
     </properties>
 
     <!-- Add dependencies -->
