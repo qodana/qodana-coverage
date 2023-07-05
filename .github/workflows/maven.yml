@@ -1,6 +1,12 @@
 name: IntelliJ Agent - Maven Test
 
-on: [push, workflow_dispatch]
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+      - 'releases/*'
 
 jobs:
   build:
