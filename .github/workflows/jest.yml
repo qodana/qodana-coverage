@@ -45,7 +45,7 @@ jobs:
     - name: Qodana Scan
       uses: JetBrains/qodana-action@v2023.1.5
       env:
-        QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_JEST }}
+        QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_JS }}
       with:
         args: "-i,JS/jest,--linter,registry.jetbrains.team/p/sa/containers/qodana-js:2023.2-nightly"
         pr-mode: false
