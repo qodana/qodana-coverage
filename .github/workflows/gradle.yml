@@ -1,6 +1,6 @@
 name: IntelliJ Agent - Gradle Test
 
-on: [push, pull_request, workflow_dispatch]
+on: [push, workflow_dispatch]
 
 jobs:
   build:
@@ -9,7 +9,10 @@ jobs:
 
     steps:
     - name: Checkout Code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+        fetch-depth: 0
 
     - name: Set up JDK 17
       uses: actions/setup-java@v2
@@ -50,5 +53,5 @@ jobs:
       env:
         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_GRADLE }}
       with:
-        args: "--log-level,debug,-i,JVM/intellij-coverage-agent/gradle,--linter,registry.jetbrains.team/p/sa/containers/qodana-jvm:2023.2-nightly"
+        args: "-i,JVM/intellij-coverage-agent/gradle,--linter,registry.jetbrains.team/p/sa/containers/qodana-jvm:2023.2-nightly"
         pr-mode: false
