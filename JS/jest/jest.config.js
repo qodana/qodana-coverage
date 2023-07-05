@@ -3,6 +3,6 @@ module.exports = {
     transform: {
         '\\.[tj]s$': 'babel-jest',
     },
-    coverageDirectory: '.qodana/coverage-data/',
+    coverageDirectory: '.qodana/code-coverage/',
     coverageReporters: ['lcovonly']
 };
