@@ -46,17 +46,10 @@ jobs:
         name: php-coverage-data
         path: PHP/phpunit/.qodana/code-coverage
 
-    - name: Login to Jetbrains Space
-      uses: docker/login-action@v2
-      with:
-        registry: registry.jetbrains.team
-        username: ${{ secrets.SPACE_REGISTRY_USERNAME }}
-        password: ${{ secrets.SPACE_REGISTRY_PASSWORD }}     
-        
     - name: Qodana Scan
       uses: JetBrains/qodana-action@main
       env:
         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_PHP }}
       with:
-        args: "-i,PHP/phpunit,--linter,registry.jetbrains.team/p/sa/containers/qodana-php:2023.2-nightly"
+        args: "-i,PHP/phpunit,--linter,jetbrains/qodana-php:2023.2-eap"
         pr-mode: false
