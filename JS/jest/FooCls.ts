@@ -6,6 +6,7 @@ export class FooCls {
     constructor(singleParam?: number) {
         if (singleParam !== undefined) {
             this.singleParam = singleParam;
+            this.singleParam = 123;
         } else {
             this.singleParam = 0;
         }
