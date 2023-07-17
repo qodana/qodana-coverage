@@ -44,4 +44,4 @@ jobs:
         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_JS }}
       with:
         args: "-i,JS/jest,--linter,jetbrains/qodana-js:2023.2-eap"
-        pr-mode: false
+        pr-mode: true
