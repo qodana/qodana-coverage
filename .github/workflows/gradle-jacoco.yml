@@ -46,5 +46,5 @@ jobs:
       env:
         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_GRADLE_JACOCO }}
       with:
-        args: "-i,JVM/jacoco/gradle,--linter,jetbrains/qodana-jvm:2023.2-eap"
+        args: "-i,JVM/jacoco/gradle,--linter,jetbrains/qodana-jvm:2023.3-eap"
         pr-mode: false

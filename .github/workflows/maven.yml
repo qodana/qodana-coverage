@@ -46,5 +46,5 @@ jobs:
       env:
         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_MVN }}
       with:
-        args: "-i,JVM/intellij-coverage-agent/maven,--linter,jetbrains/qodana-jvm:2023.2-eap"
+        args: "-i,JVM/intellij-coverage-agent/maven,--linter,jetbrains/qodana-jvm:2023.3-eap"
         pr-mode: false
