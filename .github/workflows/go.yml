@@ -1,0 +1,44 @@
+name: Go - go test coverage
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+      - 'releases/*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.20'
+
+      - name: Test
+        run: |
+          mkdir -p .qodana/code-coverage
+          go test ./... --coverprofile .qodana/code-coverage/coverage.out
+        working-directory: GO/go-test-coverage
+
+      - name: Archive coverage data
+        uses: actions/upload-artifact@v2
+        with:
+          name: gradle-coverage-data.zip
+          path: GO/go-test-coverage/.qodana/code-coverage
+
+      - name: Qodana Scan
+        uses: JetBrains/qodana-action@main
+        env:
+          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_GO }}
+        with:
+          args: "-i,GO/go-test-coverage,--linter,jetbrains/qodana-go:2023.3-eap"
+          pr-mode: false
