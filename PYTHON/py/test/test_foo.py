@@ -1,5 +1,4 @@
-from src.FooCls import FooCls
-from another import ff
+from src.foo import FooCls
 import unittest
 
 
