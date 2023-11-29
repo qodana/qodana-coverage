@@ -26,7 +26,7 @@ jobs:
       - name: Test
         run: |
           mkdir -p .qodana/code-coverage
-          go test ./... --coverprofile .qodana/code-coverage/coverage.out
+          go test ./... -coverprofile .qodana/code-coverage/coverage.out
         working-directory: GO/go-test-coverage
 
       - name: Archive coverage data
