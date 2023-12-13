@@ -32,7 +32,7 @@ jobs:
       - name: Archive coverage data
         uses: actions/upload-artifact@v2
         with:
-          name: gradle-coverage-data.zip
+          name: go-coverage-data
           path: GO/go-test-coverage/.qodana/code-coverage
 
       - name: Qodana Scan
