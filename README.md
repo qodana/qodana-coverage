@@ -8,7 +8,7 @@ This repository contains configuration examples for various coverage tools, spec
 
 ## Coverage Data
 
-Coverage data is collected and stored in the `.qodana/coverage-data` folder. Qodana Coverage Support will automatically recognize this directory and calculate the coverage data accordingly.
+Coverage data is collected and stored in the `.qodana/code-coverage` folder. Qodana Coverage Support will automatically recognize this directory and calculate the coverage data accordingly.
 
 ## Usage
 
@@ -18,4 +18,4 @@ Please note that this repository should be used as a reference only. Feel free t
 
 It's important to note that JaCoCo support is limited: although the percentage of coverage would be computed and displayed, it won't be uploaded/downloaded to the cloud. For a more comprehensive solution, particularly for Java and Kotlin, consider using IntelliJ Coverage Agent with the `ic` output format instead.
 
-For Gradle projects intending to use the `ic` format, additional actions are required to copy the resulting files to the `.qodana/coverage-data` folder.
+For Gradle projects intending to use the `ic` format, additional actions are required to copy the resulting files to the `.qodana/code-coverage` folder.
