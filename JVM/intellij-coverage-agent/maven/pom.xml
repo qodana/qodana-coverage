@@ -13,7 +13,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.jupiter.version>5.7.2</junit.jupiter.version>
-        <intellij.coverage.agent.version>1.0.725</intellij.coverage.agent.version>
+        <intellij.coverage.agent.version>1.0.746</intellij.coverage.agent.version>
         <intellij.agent.options>${project.basedir}/.qodana/code-coverage/output.ic,true,true,true,false</intellij.agent.options>
     </properties>
 
@@ -32,25 +32,43 @@
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- IntelliJ Coverage Agent -->
-        <dependency>
-            <groupId>org.jetbrains.intellij.deps</groupId>
-            <artifactId>intellij-coverage-agent</artifactId>
-            <version>${intellij.coverage.agent.version}</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.6.1</version>
+                <executions>
+                    <execution>
+                        <id>intellij-coverage-agent</id>
+                        <phase>process-test-classes</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <!-- IntelliJ Coverage Agent -->
+                                <artifactItem>
+                                    <groupId>org.jetbrains.intellij.deps</groupId>
+                                    <artifactId>intellij-coverage-agent</artifactId>
+                                    <version>${intellij.coverage.agent.version}</version>
+                                    <destFileName>intellij-coverage-agent.jar</destFileName>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.2</version>
+                <version>3.2.5</version>
                 <configuration>
                     <!-- Specify the IntelliJ coverage agent -->
                     <argLine>
-                        -javaagent:${settings.localRepository}/org/jetbrains/intellij/deps/intellij-coverage-agent/${intellij.coverage.agent.version}/intellij-coverage-agent-${intellij.coverage.agent.version}.jar=${intellij.agent.options}
+                        -javaagent:${project.build.directory}/dependency/intellij-coverage-agent.jar=${intellij.agent.options}
                     </argLine>
                 </configuration>
             </plugin>
