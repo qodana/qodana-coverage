@@ -47,6 +47,6 @@ jobs:
       env:
         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_PYTHON }}
       with:
-        args: "-i,PYTHON/py,--linter,jetbrains/qodana-python:2024.1"
+        args: "-i,PYTHON/py,--linter,jetbrains/qodana-python:latest"
         pr-mode: false
 

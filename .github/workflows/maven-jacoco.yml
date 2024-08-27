@@ -46,5 +46,5 @@ jobs:
       env:
         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_MVN_JACOCO }}
       with:
-        args: "-i,JVM/jacoco/maven,--linter,jetbrains/qodana-jvm:2023.3-eap"
+        args: "-i,JVM/jacoco/maven,--linter,jetbrains/qodana-jvm:latest"
         pr-mode: false
