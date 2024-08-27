@@ -40,5 +40,5 @@ jobs:
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_GO }}
         with:
-          args: "-i,GO/go-test-coverage,--linter,jetbrains/qodana-go:2023.3-eap"
+          args: "-i,GO/go-test-coverage,--linter,jetbrains/qodana-go:latest"
           pr-mode: false
