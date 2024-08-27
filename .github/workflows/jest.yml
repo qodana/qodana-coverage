@@ -42,8 +42,8 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: registry.jetbrains.team
-        username: ${{ secrets.SPACE_USER }}
-        password: ${{ secrets.SPACE_PASSWORD }}
+        username: ${{ secrets.SPACE_REGISTRY_USERNAME }}
+        password: ${{ secrets.SPACE_REGISTRY_PASSWORD }}
 
     - run: docker pull registry.jetbrains.team/p/sa/containers/qodana-js:2024.2-nightly
 
