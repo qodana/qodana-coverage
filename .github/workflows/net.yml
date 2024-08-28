@@ -32,7 +32,7 @@ jobs:
         run: dotnet build --no-restore
 
       - name: Add coverlet dependency
-        working-directory: NET/coverlet
+        working-directory: NET/coverlet/UnitTestProject
         run: |
           dotnet add package coverlet.msbuild; dotnet add package coverlet.collector
 
