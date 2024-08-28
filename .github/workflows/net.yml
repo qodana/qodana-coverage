@@ -23,21 +23,17 @@ jobs:
         with:
           dotnet-version: '7.0'
 
-      - name: Restore dependencies
-        working-directory: NET/coverlet
-        run: dotnet restore
-
-      - name: Build solution
-        working-directory: NET/coverlet
-        run: dotnet build --no-restore
-
-      - name: Add coverlet dependency
+      - name: Add coverlet dependencies
         working-directory: NET/coverlet/UnitTestProject
         run: |
           dotnet add package coverlet.msbuild; dotnet add package coverlet.collector
 
+      - name: Build solution
+        working-directory: NET/coverlet
+        run: dotnet build
+
       - name: Run tests with code coverage
-        run: dotnet test /p:CollectCoverage=true /p:CoverletOutput=./.qodana/code-coverage /p:CoverletOutputFormat=lcov; ls -la
+        run: dotnet test /p:CollectCoverage=true /p:CoverletOutput=../.qodana/code-coverage /p:CoverletOutputFormat=lcov; ls -la
         working-directory: NET/coverlet
 
       - name: Archive coverage data
