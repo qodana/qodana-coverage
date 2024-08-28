@@ -17,7 +17,7 @@ public class Class2
     public int MyProperty1
     {
         get => MyProperty;
-        set => MyProperty = value;
+        set => MyProperty2 = value;
     }
 
     public int MyProperty2
