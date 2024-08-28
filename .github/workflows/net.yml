@@ -34,10 +34,10 @@ jobs:
       - name: Add coverlet dependency
         working-directory: NET/coverlet
         run: |
-          dotnet add package coverlet.msbuild
+          dotnet add package coverlet.msbuild; dotnet add package coverlet.collector
 
       - name: Run tests with code coverage
-        run: dotnet test /p:CollectCoverage=true /p:CoverletOutput=.qodana/code-coverage /p:CoverletOutputFormat=lcov; ls -la
+        run: dotnet test /p:CollectCoverage=true /p:CoverletOutput=./.qodana/code-coverage /p:CoverletOutputFormat=lcov; ls -la
         working-directory: NET/coverlet
 
       - name: Archive coverage data
