@@ -33,7 +33,7 @@ jobs:
         run: dotnet build
 
       - name: Run tests with code coverage
-        run: dotnet test /p:CollectCoverage=true /p:CoverletOutput=../.qodana/code-coverage/ /p:CoverletOutputFormat=lcov; ls -la
+        run: dotnet test /p:CollectCoverage=true /p:CoverletOutput=../.qodana/code-coverage/ /p:CoverletOutputFormat=lcov
         working-directory: NET/coverlet
 
       - name: Archive coverage data
