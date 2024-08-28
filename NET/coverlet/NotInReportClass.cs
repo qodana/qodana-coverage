@@ -2,7 +2,7 @@ namespace QodanaCoverageTest;
 
 public class NotInReportClass : Interface1
 {
-    public Class1()
+    public NotInReportClass()
     {
         var y = 42;
     }
