@@ -41,7 +41,7 @@ jobs:
         XDEBUG_MODE: coverage
       
     - name: Archive coverage data
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: php-coverage-data
         path: PHP/phpunit/.qodana/code-coverage
