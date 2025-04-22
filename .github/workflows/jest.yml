@@ -33,7 +33,7 @@ jobs:
       working-directory: JS/jest
       
     - name: Archive coverage data
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: jest-coverage-data
         path: JS/jest/.qodana/code-coverage

@@ -37,7 +37,7 @@ jobs:
       working-directory: PYTHON/py
 
     - name: Archive coverage data
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: py-coverage-data
         path: PYTHON/py/.qodana/code-coverage

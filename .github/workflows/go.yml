@@ -30,7 +30,7 @@ jobs:
         working-directory: GO/go-test-coverage
 
       - name: Archive coverage data
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: go-coverage-data
           path: GO/go-test-coverage/.qodana/code-coverage

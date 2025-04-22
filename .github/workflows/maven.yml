@@ -36,7 +36,7 @@ jobs:
       working-directory: JVM/intellij-coverage-agent/maven
       
     - name: Archive coverage data
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: maven-coverage-data
         path: JVM/intellij-coverage-agent/maven/.qodana/code-coverage
